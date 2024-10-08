@@ -20,7 +20,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/alten_store
     username: postgres
-    password: PNcs44330!!
+    password: 1234
   # https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/#howto.data-initialization.using-basic-sql-scripts
   # Default is "embedded" (only performed when using an embedded in-memory database, like H2)
   # Other values are "always" or "never".
