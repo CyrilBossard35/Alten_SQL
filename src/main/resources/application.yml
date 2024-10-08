@@ -1,0 +1,42 @@
+# https://docs.spring.io/spring-boot/docs/3.2.2/reference/html/application-properties.html
+
+server:
+  error:
+    # Permet de remonter les messages d'erreurs remont�s par nos ResponseStatusException
+    include-message: always
+    # Permet de remonter les erreurs li�es � hibernate-validator (@NotBlank, @NotEmpty ...)
+    include-binding-errors: always
+  servlet:
+    context-path:
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: trace
+    org.hibernate.orm.jdbc.bind: trace
+    org.hibernate.orm.jdbc.extract: trace
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/alten_store
+    username: postgres
+    password: PNcs44330!!
+  # https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/#howto.data-initialization.using-basic-sql-scripts
+  # Default is "embedded" (only performed when using an embedded in-memory database, like H2)
+  # Other values are "always" or "never".
+  sql.init.mode: always
+  jpa:
+    # https://www.baeldung.com/spring-open-session-in-view
+    # https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/#data.sql.jpa-and-spring-data.open-entity-manager-in-view
+    open-in-view: false
+    # Automatic generation of the database schema
+    generate-ddl: false
+    # Ensure SQL scripts are executed after Hibernate's DDL generation
+    defer-datasource-initialization: false
+    # https://docs.jboss.org/hibernate/orm/6.2/userguide/html_single/Hibernate_User_Guide.html#configurations-hbmddl
+    hibernate:
+      ddl-auto: validate
+      # Show SQL queries in logs
+      show_sql: true
+      format_sql: true
+
